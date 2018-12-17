@@ -39,11 +39,11 @@ CREATE TABLE ads (
     PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS ads-cat;
+DROP TABLE IF EXISTS ads_cat;
 
-CREATE TABLE ads-cat (
+CREATE TABLE ads_cat (
     ads_id INT UNSIGNED NOT NULL,
     category_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (ads_id) REFERENCES ads (id),
     FOREIGN KEY (category_id) REFERENCES categories (id)
-)
+  );

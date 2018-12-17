@@ -70,3 +70,4 @@ Were open 8:30-5:30pm M-F and 10-5 on Saturday. Come see our model unit today, a
     'For sale ornamental fishbowl.  Fish NOT INCLUDED.'
 );
 
+INSERT INTO ads_cat (ads_id, category_id) VALUES (1, 8), (1, 10), (1, 9);
