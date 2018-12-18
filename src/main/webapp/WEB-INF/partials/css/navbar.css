@@ -1,11 +1,18 @@
+.customfont {
+    font-family: "Permanent Marker";
+    color: forestgreen;
+    text-decoration: none;
+
+}
+.navHeight {
+    /*height: 24px;*/
+}
 .fontSize22 {
     font-size: 22px;
 }
-
 .fontSize16 {
     font-size: 16px;
 }
-
 .imgSize {
     height: 5em;
     width: 4em;
@@ -16,5 +23,5 @@
     margin-top: 0em;
 }
 .dropdown-menu>a {
-    padding:10px 50px;
+    padding:5px 40px;
 }
