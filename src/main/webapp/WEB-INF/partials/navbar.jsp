@@ -1,15 +1,16 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet'>
 
 <style>
     <%@include file="css/navbar.css"%>
 </style>
 
-<nav class="pt-0 navbar navbar-expand-lg navbar-light bg-light">
-    <a class="pt-0 navbar-brand" href="/login"><img class="imgSize" src="https://cdn.discordapp.com/attachments/524262190669234186/524610521001885707/Cody.png" alt="Cody"></a>
+<nav class="navHeight pt-0 pl-0 navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="pt-0 navbar-brand mr-0" href="/login"><img class="imgSize" src="https://cdn.discordapp.com/attachments/524262190669234186/524659609126830082/Cody.png" alt="Cody"></a>
+    <a class="customfont fontSize16" href="/login">CODY'S CURIOSITIES</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
