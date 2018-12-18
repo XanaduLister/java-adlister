@@ -1,0 +1,20 @@
+.fontSize22 {
+    font-size: 22px;
+}
+
+.fontSize16 {
+    font-size: 16px;
+}
+
+.imgSize {
+    height: 5em;
+    width: 4em;
+    /*position: absolute;*/
+    /*bottom: 4px;*/
+}
+.topMargin {
+    margin-top: 0em;
+}
+.dropdown-menu>a {
+    padding:10px 50px;
+}
