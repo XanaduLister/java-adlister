@@ -18,7 +18,6 @@ public class HelloWorldServlet extends HttpServlet {
                 "<body>\n" +
                 "<h1>Page Not Found</h1>\n" +
                 "<p>Sorry, but the page you were trying to view does not exist.</p>\n" +
-                "<p>AND you are gay!</p>\n" +
                 "<br>\n" +
                 "</body>\n" +
                 "<img src=\"https://rainbowwhiskers.files.wordpress.com/2012/01/rainbowwhiskers.png\">\n" +
