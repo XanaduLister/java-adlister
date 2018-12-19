@@ -36,7 +36,6 @@
                 <label class="labelSize" for="confirm_password">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-success btn-block btn-lg">
             <button type="submit" class="btn btn-success btn-block btn-lg">Edit Profile</button>
         </form>
     </div>
