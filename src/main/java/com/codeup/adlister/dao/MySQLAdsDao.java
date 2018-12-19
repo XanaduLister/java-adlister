@@ -38,7 +38,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    @Override
+//    @Override
     public List<Ad> myads() {
         PreparedStatement stmt = null;
         try {
