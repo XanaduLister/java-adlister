@@ -9,7 +9,10 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <div class="container">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <h1>Welcome, <label class="text-success">${sessionScope.user.username}</label>, to your closet of curiosities!</h1>
+        <form action="/profile/update" method="get">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Update Profile</button>
+        </form>
     </div>
 
 </body>
