@@ -21,10 +21,10 @@
                 <label class="labelSize" for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Log In">
+            <input type="submit" class="btn btn-success btn-block btn-lg" value="Log In">
         </form>
         <form action="/register">
-            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Register">
+            <input type="submit" class="btn btn-success btn-block btn-lg" value="Register">
         </form>
     </div>
 </body>
