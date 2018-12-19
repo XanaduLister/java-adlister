@@ -13,7 +13,7 @@ VALUES  ('computers'),
         ('massage'),
         ('general');
 
-INSERT INTO users(name, email, password, phone)
+INSERT INTO users(username, email, password, phone)
 
 VALUES  ('Mark Stachowski', 'mark@gmail.com', '$V"67k/9U4_p)*e]r#A5./uV-Y4@_zmVXsyY\HW<JG_;R~uAcn4~?6Jrep~]', 9991117777),
         ('Julian Lundquist', 'julian@gmail.com', '$U)r.Z_7Zh+NX:D"MBC739eQa)Fu:S@c"%y#}[C-b:P(Z3Sf\+~U2tGP\R<Q', 2220001111),
