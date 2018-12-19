@@ -1,12 +1,15 @@
 .customfont {
     font-family: "Permanent Marker";
-    color: forestgreen;
     text-decoration: none;
 
 }
 .navHeight {
     /*height: 24px;*/
 }
+.fontSize32 {
+    font-size: 32px;
+}
+
 .fontSize22 {
     font-size: 22px;
 }

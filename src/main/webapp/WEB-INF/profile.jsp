@@ -15,6 +15,11 @@
             <button type="submit" class="btn btn-success btn-block btn-lg">Update Profile</button>
         </form>
         <div class="row">
+            <div class="col-12 text-center">
+                <label class="customfont fontSize32 text-warning">My Posts</label>
+            </div>
+        </div>
+        <div class="row">
             <c:forEach var="ad" items="${ads}">
                 <div class="col-6 col-lg-3">
                     <h2>${ad.title}</h2>
@@ -23,6 +28,5 @@
             </c:forEach>
         </div>
     </div>
-
 </body>
 </html>
