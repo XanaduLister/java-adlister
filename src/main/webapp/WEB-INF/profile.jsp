@@ -15,12 +15,12 @@
             <button type="submit" class="btn btn-success btn-block btn-lg">Update Profile</button>
         </form>
         <div class="row">
-                <c:forEach var="ad" items="${ads}">
-            <div class="col-6 col-lg-3">
+            <c:forEach var="ad" items="${ads}">
+                <div class="col-6 col-lg-3">
                     <h2>${ad.title}</h2>
                     <p>${ad.description}</p>
-            </div>
-                </c:forEach>
+                </div>
+            </c:forEach>
         </div>
     </div>
 
