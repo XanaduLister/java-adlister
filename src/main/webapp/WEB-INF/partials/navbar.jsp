@@ -7,7 +7,7 @@
 
 <nav class="navHeight pt-0 pl-0 navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="pt-0 navbar-brand mr-0" href="/login"><img class="imgSize" src="https://cdn.discordapp.com/attachments/524262190669234186/524659609126830082/Cody.png" alt="Cody"></a>
-    <a class="customfont fontSize16" href="/login">CODY'S CURIOSITIES</a>
+    <a class="customfont fontSize16 text-success" href="/login">CODY'S CURIOSITIES</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
