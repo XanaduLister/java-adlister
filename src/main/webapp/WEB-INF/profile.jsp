@@ -20,10 +20,10 @@
             </div>
         </div>
         <div class="row">
-            <c:forEach var="ad" items="${ads}">
+            <c:forEach var="userAds" items="${userAds}">
                 <div class="col-6 col-lg-3">
-                    <h2>${ad.title}</h2>
-                    <p>${ad.description}</p>
+                    <h2>${userAds.title}</h2>
+                    <p>${userAds.description}</p>
                 </div>
             </c:forEach>
         </div>

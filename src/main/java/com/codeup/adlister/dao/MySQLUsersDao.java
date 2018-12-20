@@ -63,4 +63,16 @@ public class MySQLUsersDao implements Users {
         );
     }
 
+    private User id(ResultSet rs) throws SQLException {
+        if (! rs.next()) {
+            return null;
+        }
+        return new User(
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getString("password")
+        );
+    }
+
 }
