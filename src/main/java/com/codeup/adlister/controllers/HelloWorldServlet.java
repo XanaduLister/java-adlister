@@ -26,7 +26,7 @@ public class HelloWorldServlet extends HttpServlet {
                 "<p class=\"text-center\">Sorry, but the page you were trying to view does not exist.</p>\n" +
                 "<br>\n" +
                 "</body>\n" +
-                "<div class=\"text-center\"><img src=\"https://rainbowwhiskers.files.wordpress.com/2012/01/rainbowwhiskers.png\"></div>\n" +
+                "<div class=\"text-center\"><img src=\"https://cdn.discordapp.com/attachments/524262190669234186/525350258281283624/rainbowwhiskers.png\"></div>\n" +
                 "</html>");
     }
 }
