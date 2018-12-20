@@ -5,17 +5,23 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
+    <style>
+        <%@include file="partials/css/navbar.css"%>
+        body {
+            background-color: lightgrey;
+        }
+    </style>
 </head>
 <body>
-<%--<c:choose>--%>
-    <%--<c:when test = >--%>
+<c:choose>
+    <c:when test="${sessionScope.user.username != null}">
         <jsp:include page="/WEB-INF/partials/profile_navbar.jsp" />
-    <%--</c:when>--%>
+    </c:when>
 
-    <%--<c:otherwise>--%>
-        <%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
-    <%--</c:otherwise>--%>
-<%--</c:choose>--%>
+    <c:otherwise>
+        <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    </c:otherwise>
+</c:choose>
 
 
     <div class="container">
@@ -29,10 +35,22 @@
             </div>
         </div>
         <div class="row">
-            <c:forEach var="userAds" items="${userAds}">
-                <div class="col-6 col-lg-3">
-                    <h2>${userAds.title}</h2>
-                    <p>${userAds.description}</p>
+            <c:forEach var="userAd" items="${userAds}">
+                <div class="col-6 col-lg-4 card card-body">
+                    <h1>${userAd.title}</h1>
+                    <a class="fontSize16">${userAd.description}</a>
+                    <div class="row">
+                        <div class="col-6">
+                            <form class="mt-2" action="ads/edit" method="get">
+                                <a class="btn btn-info btn-lg" name="edit" href="${pageContext.request.contextPath}/ads/edit?id=${user_ads.id}">Edit</a>
+                            </form>
+                        </div>
+                        <div class="col-6">
+                            <form class="float-right mt-2" action="ads/delete" method="get">
+                                <a class="btn btn-danger btn-lg" name="delete" href="">Delete</a>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </c:forEach>
         </div>

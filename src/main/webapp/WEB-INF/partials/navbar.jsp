@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet'>
 <link rel="stylesheet" href="css/login.css">
@@ -32,12 +33,18 @@
             <button class="ml-3 btn btn-outline-success btn-lg" type="submit">Search</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <form class="my-2 my-lg-0 btn-group-lg" action="/login">
-                <button class="ml-3 btn btn-outline-success" type="submit">Login</button>
-            </form>
-            <form class="my-2 my-lg-0 btn-group-lg" action="/logout">
-                <button class="ml-3 btn btn-outline-success" type="submit">Logout</button>
-            </form>
+            <c:choose>
+                <c:when test="${sessionScope.user.username != null}">
+                    <form class="my-2 my-lg-0 btn-group-lg" action="/logout">
+                        <button class="ml-3 btn btn-outline-success" type="submit">Logout</button>
+                    </form>
+                </c:when>
+                <c:otherwise>
+                    <form class="my-2 my-lg-0 btn-group-lg" action="/login">
+                        <button class="ml-3 btn btn-outline-success" type="submit">Login</button>
+                    </form>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </div>
 </nav>
