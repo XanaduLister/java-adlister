@@ -7,7 +7,16 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<%--<c:choose>--%>
+    <%--<c:when test = >--%>
+        <jsp:include page="/WEB-INF/partials/profile_navbar.jsp" />
+    <%--</c:when>--%>
+
+    <%--<c:otherwise>--%>
+        <%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
+    <%--</c:otherwise>--%>
+<%--</c:choose>--%>
+
 
     <div class="container">
         <h1 class="text-center">Welcome, <label class="text-success">${sessionScope.user.username}</label>, to your closet of curiosities!</h1>
