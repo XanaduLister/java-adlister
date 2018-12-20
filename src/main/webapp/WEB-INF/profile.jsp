@@ -19,7 +19,7 @@
 
 
     <div class="container">
-        <h1 class="text-center">Welcome, <label class="text-success">${sessionScope.user.username}</label>, to your closet of curiosities!</h1>
+        <h1 class="text-center">Welcome <label class="text-success">${sessionScope.user.username}</label> to your closet of curiosities!</h1>
         <form action="/profile/update" method="get">
             <button type="submit" class="btn btn-success btn-block btn-lg">Update Profile</button>
         </form>
