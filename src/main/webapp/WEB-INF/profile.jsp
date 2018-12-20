@@ -7,10 +7,19 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<%--<c:choose>--%>
+    <%--<c:when test = >--%>
+        <jsp:include page="/WEB-INF/partials/profile_navbar.jsp" />
+    <%--</c:when>--%>
+
+    <%--<c:otherwise>--%>
+        <%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
+    <%--</c:otherwise>--%>
+<%--</c:choose>--%>
+
 
     <div class="container">
-        <h1 class="text-center">Welcome, <label class="text-success">${sessionScope.user.username}</label>, to your closet of curiosities!</h1>
+        <h1 class="text-center">Welcome <label class="text-success">${sessionScope.user.username}</label> to your closet of curiosities!</h1>
         <form action="/profile/update" method="get">
             <button type="submit" class="btn btn-success btn-block btn-lg">Update Profile</button>
         </form>
