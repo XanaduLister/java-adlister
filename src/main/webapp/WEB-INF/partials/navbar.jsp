@@ -29,7 +29,7 @@
             </li>
         </ul>
         <form action="/search" method="POST" class="form-inline my-2 my-lg-0 btn-group-lg input-group-lg">
-            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" name="search" placeholder="All Ads Search..." aria-label="Search">
             <button class="ml-3 btn btn-outline-success btn-lg" type="submit">Search</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
