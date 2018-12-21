@@ -16,12 +16,20 @@ public class AdServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+		String adId = request.getParameter("adId");
+		Ad ad = DaoFactory.getAdsDao().getAdByID(adId);
+		String userId = Long.toString(ad.getUserId());
+		User user = DaoFactory.getUsersDao().findUserById(userId);
+
+		request.setAttribute("user", user);
+		request.setAttribute("ad", ad);
 		request.getRequestDispatcher("/WEB-INF/ads/ad.jsp")
 				.forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//				ADD CODE HERE FOR POST LOGIC
 	}
 
 }

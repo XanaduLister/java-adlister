@@ -72,12 +72,44 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> userAds(long id) {PreparedStatement stmt = null;
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ?");
-//            stmt.setString(1, Integer.toString(id));
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving your ads.", e);
+        }
+    }
+
+    @Override
+    public List<String> getAdCategories(long adId) {
+        PreparedStatement stmt = null;
+        List<String> adCategories = new ArrayList<>();
+        try {
+            String pullCategories = "SELECT type FROM categories JOIN ads_cat as ac ON categories.id = ac.category_id JOIN ads as a ON ac.ads_id = a.id WHERE a.id = ?";
+
+            stmt = connection.prepareStatement(pullCategories);
+            stmt.setLong(1, adId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                adCategories.add(rs.getString("type"));
+            } return adCategories;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving your categories.", e);
+        }
+    }
+
+    @Override
+    public Ad getAdByID(String adId) {
+        PreparedStatement stmt = null;
+        try {
+            String pullAdId = "SELECT * FROM ads where id = ?";
+            stmt = connection.prepareStatement((pullAdId));
+            stmt.setString(1, adId);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving your ad.", e);
         }
     }
 
