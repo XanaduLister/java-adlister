@@ -31,7 +31,7 @@
         </form>
         <div class="row">
             <div class="col-12 text-center">
-                <label class="customfont fontSize32 text-warning">My Posts</label>
+                <label class="customfont fontSize32 text-warning">My Ads</label>
             </div>
         </div>
         <div class="row">
