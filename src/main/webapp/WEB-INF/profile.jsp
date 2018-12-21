@@ -36,10 +36,20 @@
         </div>
         <div class="row">
             <c:forEach var="userAd" items="${userAds}">
-                <div class="col-6 col-lg-4 card card-body">
-                    <h1>${userAd.title}</h1>
-                    <a class="fontSize16">${userAd.description}</a>
+                <div class="col-6 col-lg-4 card card-body pb-0">
                     <div class="row">
+                        <div class="col-11">
+                            <h1>${userAd.title}</h1>
+                        </div>
+                        <div class="col-1">
+                            <form class="float-right mt-2" action="ads/ad" method="get">
+                                <a class="btn btn-success btn-lg" name="info" href="${pageContext.request.contextPath}/ads/ad?id=${ad.id}">Info</a>
+                            </form>
+                        </div>
+                    </div>
+                            <h1>${userAd.id}</h1>
+                            <a class="fontSize16">${userAd.description}</a>
+                    <div class="row card-footer">
                         <div class="col-6">
                             <form class="mt-2" action="ads/edit" method="get">
                                 <a class="btn btn-info btn-lg" name="edit" href="${pageContext.request.contextPath}/ads/edit?id=${user_ads.id}">Edit</a>
