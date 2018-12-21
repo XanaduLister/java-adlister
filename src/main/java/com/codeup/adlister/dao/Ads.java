@@ -11,5 +11,8 @@ public interface Ads {
     Long insert(Ad ad);
     // list all adds created by a specific user.
     List<Ad> userAds(long id);
+    // gets a list of all categories assigned to an individual ad
+    List<String> getAdCategories(long adId);
+    Ad getAdByID(String adId);
 
 }

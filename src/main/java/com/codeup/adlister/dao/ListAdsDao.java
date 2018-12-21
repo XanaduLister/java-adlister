@@ -28,7 +28,17 @@ public class ListAdsDao implements Ads {
     }
 
     @Override
-    public List<Ad> userAds(long id) {
+    public List<Ad> userAds(long adId) {
+        return null;
+    }
+
+    @Override
+    public List<String> getAdCategories(long id) {
+        return null;
+    }
+
+    @Override
+    public Ad getAdByID(String adId) {
         return null;
     }
 
