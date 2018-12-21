@@ -38,10 +38,10 @@
             <c:forEach var="userAd" items="${userAds}">
                 <div class="col-6 col-lg-4 card card-body pb-0">
                     <div class="row">
-                        <div class="col-11">
+                        <div class="col-10">
                             <h1>${userAd.title}</h1>
                         </div>
-                        <div class="col-1">
+                        <div class="col-2">
                             <form class="float-right mt-2" action="ads/ad" method="get">
                                 <a class="btn btn-success btn-lg" name="info" href="${pageContext.request.contextPath}/ads/ad?id=${ad.id}">Info</a>
                             </form>
