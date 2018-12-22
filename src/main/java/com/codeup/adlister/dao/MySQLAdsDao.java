@@ -121,7 +121,7 @@ public class MySQLAdsDao implements Ads {
             rs.getString("description")
         );
     }
-
+//test comment
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
