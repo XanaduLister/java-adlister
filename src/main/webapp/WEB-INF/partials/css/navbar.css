@@ -1,7 +1,6 @@
 .customfont {
     font-family: "Permanent Marker";
     text-decoration: none;
-
 }
 .navHeight {
     /*height: 24px;*/
@@ -9,12 +8,18 @@
 .fontSize32 {
     font-size: 32px;
 }
-
 .fontSize22 {
     font-size: 22px;
 }
 .fontSize16 {
     font-size: 16px;
+}
+.fontsize14 {
+    font-size: 14px;
+}
+.adsBorder {
+    border: 2px solid darkgreen;
+    border-radius: 5px;
 }
 .imgSize {
     height: 5em;
