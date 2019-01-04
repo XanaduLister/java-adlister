@@ -10,4 +10,10 @@ public interface Users {
 
     Long insert(User user);
     User findUserById(String Id);
+
+  User getUserById(String id);
+
+  User findById(String id);
+
+  void updateUser(User user);
 }

@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.codeup.adlister.dao.DaoFactory" %>
+<%@ page import="com.codeup.adlister.models.User" %><%--
   Created by IntelliJ IDEA.
   User: Retal
   Date: 12/19/18

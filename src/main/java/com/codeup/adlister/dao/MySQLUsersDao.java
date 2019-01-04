@@ -81,6 +81,60 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public User findById(String id) {
+        String query = "SELECT * FROM users WHERE id = ? ";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, id);
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by ID", e);
+        }
+    }
+
+    public void updateUser(User user){
+        try{
+            PreparedStatement stmt = connection.prepareStatement("UPDATE users SET username=?, email=?, WHERE id=?");
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setLong(3, user.getId());
+            stmt.executeUpdate();
+
+        }catch(SQLException e){
+            throw new RuntimeException("Error updating User Profile.");
+        }
+    }
+
+    @Override
+    public User getUserById(String id) {
+        PreparedStatement stmt = null;
+        String query = "SELECT * FROM users as a WHERE a.id = ?";
+        try {
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractUser(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Ad could not be retrieved with ID", e);
+        }
+    }
+
+    public User getUserById(Long id) {
+        PreparedStatement stmt = null;
+        String query = "SELECT * FROM users as a WHERE a.id = ?";
+        try {
+            stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractUser(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("User could not be retrieved with ID", e);
+        }
+    }
+
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
             return null;

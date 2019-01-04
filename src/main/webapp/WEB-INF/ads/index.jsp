@@ -18,9 +18,10 @@
 
     <div class="row">
         <c:forEach var="ad" items="${ads}">
-            <div class="col-6 col-lg-3">
+            <div class="col-6 col-lg-3 adsBorder">
                 <h2>${ad.title}</h2>
-                <p>${ad.description}</p>
+                <hr />
+                <p class="fontsize14">${ad.description}</p>
             </div>
         </c:forEach>
     </div>
