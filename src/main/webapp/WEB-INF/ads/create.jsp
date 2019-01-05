@@ -6,6 +6,7 @@
     </jsp:include>
     <style>
         <%@include file="../partials/css/login.css"%>
+        <%@include file="../partials/css/navbar.css"%>
     </style>
 </head>
 <body>
@@ -17,19 +18,21 @@
                 <label class="labelSize" for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
             </div>
-            <div class="form-group">
+            <div class="form-group labelSize">
                 <label for="category">Categories</label>
-                <select class="form-control" id="category" name="category">
-                    <option>computers</option>
-                    <option>guitars</option>
-                    <option>furniture</option>
-                    <option>bicycles</option>
-                    <option>services</option>
-                    <option>activity</option>
-                    <option>dating</option>
-                    <option>rentals</option>
-                    <option>massage</option>
-                    <option>general</option>
+                <select class="form-control labelSize" id="category" name="category">
+                    <optgroup class="labelSize" label="categories">
+                        <option class="labelSize">computers</option>
+                        <option class="labelSize">guitars</option>
+                        <option class="labelSize">furniture</option>
+                        <option class="labelSize">bicycles</option>
+                        <option class="labelSize">services</option>
+                        <option class="labelSize">activity</option>
+                        <option class="labelSize">dating</option>
+                        <option class="labelSize">rentals</option>
+                        <option class="labelSize">massage</option>
+                        <option class="labelSize">general</option>
+                    </optgroup>
                 </select>
             </div>
             <div class="form-group">

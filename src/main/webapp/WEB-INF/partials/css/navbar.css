@@ -33,3 +33,6 @@
 .dropdown-menu>a {
     padding:5px 40px;
 }
+optgroup {
+    font-size: 14px;
+}
