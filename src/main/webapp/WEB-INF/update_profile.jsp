@@ -1,11 +1,4 @@
-<%@ page import="com.codeup.adlister.dao.DaoFactory" %>
-<%@ page import="com.codeup.adlister.models.User" %><%--
-  Created by IntelliJ IDEA.
-  User: Retal
-  Date: 12/19/18
-  Time: 10:28 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,9 +10,12 @@
     </style>
 </head>
 <body>
-
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">
+        <c:if test="${error != null}">
+            <div class="alert alert-danger" role="alert"><h4>${error}</h4></div>
+            <hr class="mb-5">
+        </c:if>
         <form action="/profile/update" method="post">
             <div class="form-group btn-group-lg input-group-lg">
                 <label class="labelSize" for="username">Username</label>
@@ -31,15 +27,10 @@
             </div>
             <div class="form-group btn-group-lg input-group-lg">
                 <label class="labelSize" for="new_password">New Password</label>
-                <input id="new_password" name="new_password" class="form-control" type="password">
-            </div>
-            <div class="form-group btn-group-lg input-group-lg">
-                <label class="labelSize" for="confirm_password">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" class="form-control" type="password">
+                <input id="new_password" name="password" class="form-control" type="password">
             </div>
             <button type="submit" class="btn btn-success btn-block btn-lg">Edit Profile</button>
         </form>
     </div>
-
 </body>
 </html>

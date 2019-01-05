@@ -23,8 +23,11 @@
     </c:otherwise>
 </c:choose>
 
-
     <div class="container">
+        <c:if test="${error != null}">
+            <div class="alert alert-danger" role="alert"><h4>${error}</h4></div>
+            <hr class="mb-5">
+        </c:if>
         <h1 class="text-center">Welcome <label class="text-success">${sessionScope.user.username}</label> to your closet of curiosities!</h1>
         <form action="/profile/update" method="get">
             <button type="submit" class="btn btn-success btn-block btn-lg">Update Profile</button>

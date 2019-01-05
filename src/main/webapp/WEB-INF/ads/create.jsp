@@ -18,6 +18,21 @@
                 <input id="title" name="title" class="form-control" type="text">
             </div>
             <div class="form-group">
+                <label for="category">Categories</label>
+                <select class="form-control" id="category" name="category">
+                    <option>computers</option>
+                    <option>guitars</option>
+                    <option>furniture</option>
+                    <option>bicycles</option>
+                    <option>services</option>
+                    <option>activity</option>
+                    <option>dating</option>
+                    <option>rentals</option>
+                    <option>massage</option>
+                    <option>general</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label class="labelSize" for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>

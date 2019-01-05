@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
+import com.codeup.adlister.util.Authentication;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,10 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 public class UpdateProfileServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        User user = DaoFactory.getUsersDao().findById(id);
-        request.setAttribute("user", user);
-
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
@@ -26,20 +23,23 @@ public class UpdateProfileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String id = request.getParameter("id");
-        User user = DaoFactory.getUsersDao().findById(id);
+        User user = (User) request.getSession().getAttribute("user");
 
-        user.setUsername(request.getParameter("username"));
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(request.getParameter("password"));
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        if (!username.isEmpty() && Authentication.isExistingUser(username)) {
+            user.setUsername(request.getParameter("username"));
+        }
+        if (!email.isEmpty() && Authentication.isValidEmail(email)) {
+            user.setEmail(request.getParameter("email"));
+        }
+        if (!password.isEmpty() && Authentication.isValidPassword(password)) {
+            user.setPassword(request.getParameter("password"));
+        }
 
         DaoFactory.getUsersDao().updateUser(user);
-        request.getSession().invalidate();
-
-        User userNew = DaoFactory.getUsersDao().findByUsername(request.getParameter("username"));
-
-        request.getSession().setAttribute("user", userNew);
-        request.getSession().setAttribute("profileEdited", "Profile successfully updated.");
         response.sendRedirect("/profile");
 
     }
