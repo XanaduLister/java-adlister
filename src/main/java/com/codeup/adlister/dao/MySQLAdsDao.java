@@ -2,11 +2,12 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,11 +55,13 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(user_id, title, description, category) VALUES "
+                + "(?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getDescription());
+            stmt.setString(4, ad.getCategory());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -86,7 +89,6 @@ public class MySQLAdsDao implements Ads {
         List<String> adCategories = new ArrayList<>();
         try {
             String pullCategories = "SELECT type FROM categories JOIN ads_cat as ac ON categories.id = ac.category_id JOIN ads as a ON ac.ads_id = a.id WHERE a.id = ?";
-
             stmt = connection.prepareStatement(pullCategories);
             stmt.setLong(1, adId);
             ResultSet rs = stmt.executeQuery();
@@ -95,6 +97,20 @@ public class MySQLAdsDao implements Ads {
             } return adCategories;
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving your categories.", e);
+        }
+    }
+
+    @Override
+    public int getCategoryID (String category) {
+        String query = "SELECT id from categories WHERE type = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, category);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return rs.getInt("id");
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting category ID", e);
         }
     }
 
@@ -113,12 +129,27 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    public void update(Ad ad) {
+        String query = "UPDATE ads SET title = ?, description = ?, category = ?, WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, ad.getTitle());
+            stmt.setString(2, ad.getDescription());
+            stmt.setString(3, ad.getCategory());
+            stmt.setLong(4, ad.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating your ad", e);
+        }
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
             rs.getLong("user_id"),
             rs.getString("title"),
-            rs.getString("description")
+            rs.getString("description"),
+            rs.getString("category")
         );
     }
 //test comment
