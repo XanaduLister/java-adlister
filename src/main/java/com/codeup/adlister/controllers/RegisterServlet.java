@@ -55,9 +55,9 @@ public class RegisterServlet extends HttpServlet {
                 request.setAttribute("error", "There is already a user with that email.");
                 // if a password is too short...
             } else if (!Authentication.isValidPassword(password)) {
-                request.setAttribute("error", "Please enter valid password -> (must have one "
-                    + "uppercase letter, one lowercase letter, one number, and a special character"
-                    + "...)");
+                request.setAttribute("error", "Please enter valid password -> (Must be greater "
+                    + "than 7 characters in length, have one uppercase letter, one lowercase letter, one number,"
+                    + "and must have a special character...)");
                 // if the passwords do not match...
             } else if (!Authentication.passwordsMatching(password, passwordConfirmation)) {
                 request.setAttribute("error", "Passwords do not match.");
