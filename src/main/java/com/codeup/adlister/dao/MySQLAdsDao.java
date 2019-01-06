@@ -115,6 +115,18 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public void deleteAdByID(int adId) {
+        String query = "DELETE from ads where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, adId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ads", e);
+        }
+    }
+
+    @Override
     public Ad getAdByID(String adId) {
         PreparedStatement stmt = null;
         try {
@@ -152,6 +164,7 @@ public class MySQLAdsDao implements Ads {
             rs.getString("category")
         );
     }
+
 //test comment
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();

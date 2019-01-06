@@ -19,4 +19,6 @@ public interface Ads {
     Ad getAdByID(String adId);
 
     int getCategoryID (String category);
+
+    void deleteAdByID(int id);
 }
