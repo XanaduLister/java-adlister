@@ -24,23 +24,55 @@ public class UpdateProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         User user = (User) request.getSession().getAttribute("user");
-
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        if (!username.isEmpty() && Authentication.isExistingUser(username)) {
+        // validate input
+        boolean inputHasErrors = username.isEmpty()
+            || email.isEmpty()
+            || password.isEmpty()
+            || !Authentication.isExistingUser(username)
+            || !Authentication.isValidEmail(email)
+            || !Authentication.isExistingEmail(email)
+            || !Authentication.isValidPassword(password);
+
+        if (inputHasErrors) {
+            // if any field was left blank...
+            if (username.isEmpty()
+                || email.isEmpty()
+                || password.isEmpty()) {
+                request.setAttribute("error", "All fields are required.");
+                // if a username already exists...
+            } else if (!Authentication.isExistingUser(username)) {
+                request.setAttribute("error", "There is already a user with that username.");
+                // if an email is a valid format...
+            } else if (!Authentication.isValidEmail(email)) {
+                request.setAttribute("error", "This is an invalid email. Format must be -> "
+                    + "(username@mail.com)");
+                // if an email already exists...
+            } else if (!Authentication.isExistingEmail(email)) {
+                request.setAttribute("error", "There is already a user with that email.");
+                // if a password is too short...
+            } else if (!Authentication.isValidPassword(password)) {
+                request.setAttribute("error", "Please enter valid password -> (must have one "
+                    + "uppercase letter, one lowercase letter, one number, and a special character"
+                    + "...)");
+                // if any field is empty...
+            } else {
+                request.setAttribute("error", "Please check your information and try again.");
+            }
+            // Setting session attributes so registration form is still pre-filled if error occurs
+            request.getSession().setAttribute("username", username);
+            request.getSession().setAttribute("email", email);
+            request.getSession().setAttribute("password", password);
+            request.getRequestDispatcher("/WEB-INF/update_profile.jsp").forward(request, response);
+        } else {
             user.setUsername(request.getParameter("username"));
-        }
-        if (!email.isEmpty() && Authentication.isValidEmail(email)) {
             user.setEmail(request.getParameter("email"));
-        }
-        if (!password.isEmpty() && Authentication.isValidPassword(password)) {
             user.setPassword(request.getParameter("password"));
+            DaoFactory.getUsersDao().updateUser(user);
+            response.sendRedirect("/profile");
         }
-
-        DaoFactory.getUsersDao().updateUser(user);
-        response.sendRedirect("/profile");
-
     }
 }

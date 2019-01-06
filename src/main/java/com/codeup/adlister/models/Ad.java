@@ -68,10 +68,10 @@ public class Ad {
     }
 
     public String getCategory() {
-        return category;
+        return category.toUpperCase();
     }
 
     public void setCategory(String category) {
-        this.category = category;
+        this.category = category.toUpperCase();
     }
 }

@@ -13,12 +13,14 @@ import java.io.IOException;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
+
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -63,14 +65,12 @@ public class RegisterServlet extends HttpServlet {
             } else {
                 request.setAttribute("error", "Please check your information and try again.");
             }
-
             // Setting session attributes so registration form is still pre-filled if error occurs
             request.getSession().setAttribute("username", username);
             request.getSession().setAttribute("email", email);
             request.getSession().setAttribute("password", password);
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         } else {
-
             // create and save a new user
             User user = new User(username, email, password);
             DaoFactory.getUsersDao().insert(user);

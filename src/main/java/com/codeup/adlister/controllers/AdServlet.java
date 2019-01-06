@@ -16,7 +16,6 @@ public class AdServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
 		String adId = request.getParameter("adId");
 		Ad ad = DaoFactory.getAdsDao().getAdByID(adId);
 		String userId = Long.toString(ad.getUserId());
@@ -30,6 +29,7 @@ public class AdServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
 	}
 
 }

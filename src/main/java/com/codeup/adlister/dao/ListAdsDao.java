@@ -21,6 +21,11 @@ public class ListAdsDao implements Ads {
     }
 
     @Override
+    public void deleteAdByID(int id) {
+    System.out.println("deleting");
+    }
+
+    @Override
     public List<Ad> search(String searchTerm) {
         return null;
     }

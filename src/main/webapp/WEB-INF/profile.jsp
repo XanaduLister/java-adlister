@@ -45,7 +45,7 @@
                             <h1>${userAd.title}</h1>
                         </div>
                         <div class="col-2">
-                            <form class="float-right mt-2" action="ads/ad" method="get">
+                            <form class="float-right mt-2" action="ads/ad" method="post">
                                 <a class="btn btn-success btn-lg" name="info" href="${pageContext.request.contextPath}/ads/ad?id=${ad.id}">Info</a>
                             </form>
                         </div>
@@ -54,13 +54,16 @@
                             <a class="fontSize16">${userAd.description}</a>
                     <div class="row card-footer">
                         <div class="col-6">
-                            <form class="mt-2" action="ads/edit" method="get">
+                            <form class="mt-2" action="ads/edit" method="post">
                                 <a class="btn btn-info btn-lg" name="edit" href="${pageContext.request.contextPath}/ads/edit?id=${user_ads.id}">Edit</a>
                             </form>
+                            <%--Change all to buttons--%>
                         </div>
                         <div class="col-6">
-                            <form class="float-right mt-2" action="ads/delete" method="get">
-                                <a class="btn btn-danger btn-lg" name="delete" href="">Delete</a>
+                            <form class="float-right mt-2" action="ads/delete" method="post">
+                                <button class="btn btn-danger btn-lg" name="delete"
+                                        value="${userAd.id}">Delete
+                                </button>
                             </form>
                         </div>
                     </div>
