@@ -26,7 +26,7 @@ public class Authentication {
     boolean lowerCasePresent = false;
     boolean specialCharacterPresent = false;
 
-    if (password.length() > 7) {
+    if (password.length() > 8) {
       for (int i = 0; i < password.length(); i++) {
         currentCharacter = password.charAt(i);
         if (Character.isDigit(currentCharacter)) {

@@ -56,7 +56,8 @@ public class RegisterServlet extends HttpServlet {
                 // if a password is too short...
             } else if (!Authentication.isValidPassword(password)) {
                 request.setAttribute("error", "Please enter valid password -> (Must be greater "
-                    + "than 7 characters in length, have one uppercase letter, one lowercase letter, one number,"
+                    + "than 8 characters in length, have one uppercase letter, one lowercase "
+                    + "letter, one number,"
                     + "and must have a special character...)");
                 // if the passwords do not match...
             } else if (!Authentication.passwordsMatching(password, passwordConfirmation)) {
