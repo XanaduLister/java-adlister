@@ -32,7 +32,7 @@
                 <label class="labelSize" for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password"
                        placeholder="e.g., ***********">
-                <h5><strong>Must contain 1 Uppercase letter, 1 Lowercase letter, 1 Digit, and 1
+                <h5><strong>Must be greater than 7 characters in length, contain 1 Uppercase letter, 1 Lowercase letter, 1 Digit, and 1
                     Special character...</strong></h5>
             </div>
             <div class="form-group btn-group-lg input-group-lg">

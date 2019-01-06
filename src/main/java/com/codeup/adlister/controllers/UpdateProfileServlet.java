@@ -55,8 +55,8 @@ public class UpdateProfileServlet extends HttpServlet {
                 request.setAttribute("error", "There is already a user with that email.");
                 // if a password is too short...
             } else if (!Authentication.isValidPassword(password)) {
-                request.setAttribute("error", "Please enter valid password -> (must have one "
-                    + "uppercase letter, one lowercase letter, one number, and a special character"
+                request.setAttribute("error", "Please enter valid password -> (Must be longer than 7 characters,"
+                    + "must have one uppercase letter, one lowercase letter, one number, and a special character"
                     + "...)");
                 // if any field is empty...
             } else {

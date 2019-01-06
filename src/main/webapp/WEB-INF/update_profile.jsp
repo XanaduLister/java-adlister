@@ -18,11 +18,11 @@
         </c:if>
         <form action="/profile/update" method="post">
             <div class="form-group btn-group-lg input-group-lg">
-                <label class="labelSize" for="username">Username</label>
+                <label class="labelSize" for="username">New Username</label>
                 <input id="username" name="username" class="form-control" type="text">
             </div>
             <div class="form-group btn-group-lg input-group-lg">
-                <label class="labelSize" for="email">Email</label>
+                <label class="labelSize" for="email">New Email</label>
                 <input id="email" name="email" class="form-control" type="text">
             </div>
             <div class="form-group btn-group-lg input-group-lg">
