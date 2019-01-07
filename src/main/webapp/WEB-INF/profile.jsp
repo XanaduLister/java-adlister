@@ -58,7 +58,7 @@
                             <%--</form>--%>
                         <%--</div>--%>
                     </div>
-                            <h1>${userAd.id}</h1>
+                            <h1 class="hidden">${userAd.id}</h1>
                             <a class="fontSize16">${userAd.description}</a>
                     <div class="row card-footer">
                             <%--edit button--%>
