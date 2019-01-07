@@ -10,6 +10,9 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     List<Ad> search(String searchTerm);
 
+//    update an existing ad by adId
+    void update(Ad ad);
+
     Long insert(Ad ad);
     // list all adds created by a specific user.
     List<Ad> userAds(long id);

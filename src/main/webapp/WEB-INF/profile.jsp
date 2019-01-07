@@ -44,21 +44,32 @@
                         <div class="col-10">
                             <h1>${userAd.title}</h1>
                         </div>
+                            <%--info on ad button--%>
                         <div class="col-2">
-                            <form class="float-right mt-2" action="ads/ad" method="post">
-                                <a class="btn btn-success btn-lg" name="info" href="${pageContext.request.contextPath}/ads/ad?id=${ad.id}">Info</a>
+                            <form class="float-right mt-2" action="ads/ad" method="get">
+                                <button class="btn btn-success btn-lg" name="viewAd"
+                                        value="${userAd.id}">Info
+                                </button>
                             </form>
                         </div>
+                        <%--<div class="col-2">--%>
+                            <%--<form class="float-right mt-2" action="ads/ad" method="post">--%>
+                                <%--<a class="btn btn-success btn-lg" name="info" href="${pageContext.request.contextPath}/ads/ad?id=${ad.id}">Info</a>--%>
+                            <%--</form>--%>
+                        <%--</div>--%>
                     </div>
                             <h1>${userAd.id}</h1>
                             <a class="fontSize16">${userAd.description}</a>
                     <div class="row card-footer">
+                            <%--edit button--%>
                         <div class="col-6">
-                            <form class="mt-2" action="ads/edit" method="post">
-                                <a class="btn btn-info btn-lg" name="edit" href="${pageContext.request.contextPath}/ads/edit?id=${user_ads.id}">Edit</a>
+                            <form class="float-left mt-2" action="ads/edit" method="get">
+                                <button class="btn btn-info btn-lg" name="editAd"
+                                        value="${userAd.id}">Edit
+                                </button>
                             </form>
-                            <%--Change all to buttons--%>
                         </div>
+                            <%--delete button--%>
                         <div class="col-6">
                             <form class="float-right mt-2" action="ads/delete" method="post">
                                 <button class="btn btn-danger btn-lg" name="delete"
@@ -66,6 +77,20 @@
                                 </button>
                             </form>
                         </div>
+
+                        <%--<div class="col-6">--%>
+                            <%--<form class="mt-2" action="ads/edit" method="post">--%>
+                                <%--<a class="btn btn-info btn-lg" name="edit" href="${pageContext.request.contextPath}/ads/edit?id=${user_ads.id}">Edit</a>--%>
+                            <%--</form>--%>
+                        <%--</div>--%>
+                            <%--Change all to buttons--%>
+
+
+
+
+
+
+
                     </div>
                 </div>
             </c:forEach>
