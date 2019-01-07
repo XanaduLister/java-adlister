@@ -6,7 +6,7 @@
 		<jsp:param name="title" value="Ad" />
 	</jsp:include>
 	<style>
-		<%@include file="partials/css/navbar.css"%>
+		<%@include file="../partials/css/navbar.css"%>
 		body {
 			background-color: lightgrey;
 		}
