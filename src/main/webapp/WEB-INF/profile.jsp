@@ -52,13 +52,9 @@
                                 </button>
                             </form>
                         </div>
-                        <%--<div class="col-2">--%>
-                            <%--<form class="float-right mt-2" action="ads/ad" method="post">--%>
-                                <%--<a class="btn btn-success btn-lg" name="info" href="${pageContext.request.contextPath}/ads/ad?id=${ad.id}">Info</a>--%>
-                            <%--</form>--%>
-                        <%--</div>--%>
                     </div>
                             <h1 class="hidden">${userAd.id}</h1>
+                            <h5><strong>${userAd.category}</strong></h5>
                             <a class="fontSize16">${userAd.description}</a>
                     <div class="row card-footer">
                             <%--edit button--%>
